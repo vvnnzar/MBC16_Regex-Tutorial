@@ -1,4 +1,6 @@
-# MBC16_Regex-Tutorial - Using regular expression to validate email entry
+# MBC16_Regex-Tutorial
+
+### Using regular expression to validate email entry
 
 A regular expression, also known as regex is simply a sequence of characters coded in a stuctured way to form a pattern. The pattern is then used as an algorithm to match character combinations in strings. Its commonly used for "find" or "find and replace" operations on strings, or for input validation such as verifying whether a user has correctly entered something into a form.
 
@@ -6,7 +8,9 @@ Nowadays, when signing up or accessing information from an online application we
 
 This article will explore the following regex code and how it is used to validate user input of an email address.
 
-/^([a-z0-9_.-]+)@([\da-z.-]+).([a-z.]{2,6})$/
+
+    /^([a-z0-9_.-]+)@([\da-z.-]+).([a-z.]{2,6})$/
+
 
 ## Table of Contents
 
@@ -15,27 +19,18 @@ This article will explore the following regex code and how it is used to validat
 - [Grouping Constructs](#grouping-constructs)
 - [Bracket Expressions](#bracket-expressions)
 - [Character Classes](#character-classes)
-- [The OR Operator](#the-or-operator)
 - [Flags](#flags)
 - [Character Escapes](#character-escapes)
+- [Email Regex Explained](#email-regex-explained)
 
-## Regex Components
 
-/^([a-z0-9_.-]+)@([\da-z.-]+).([a-z.]{2,6})$/
-
-Before delving into the components used for regex, lets first breakdown regex pattern into three character sets.
-Each character set in the pattern is surrounded brackets ().
-
-([a-z0-9_.-]+) - Verifies that each character will be either a lower case letter, number from 0-9 or special character shown in the code. The + at the end of the bracket denotes that there can be from 1 to an infininate number of characters in this section.
-
-([\da-z.-]+) - As above, but instead of stating (0-9) the shorhand (\d) is used to depict allowing entry of any digit equal to (0-9).
-
-([a-z.]{2,6}) - Verifies that the last set of characters will be only 2-6 characters long, any letter from a-z, or a character(.)
+Lets understand regex construction and how its used in our email regex emample.
 
 ### Anchors
+Used to match start and end of a string.
 
-/^ Matches the beginning of the string.
-$/ Matches the end of the string.
+/^ Matches the beginning.
+$/ Matches the end.
 
 ### Quantifiers
 
@@ -76,9 +71,37 @@ Anchors: ^, $
 Others: ., \
 In order to use a literal ^ at the start or a literal $ at the end of a regex, the character must be escaped.
 
+
+### Email Regex Explained
+
+Using the above information lets go back to our regex email example and look at it further:
+
+    /^([a-z0-9_.-]+)@([\da-z.-]+).([a-z.]{2,6})$/
+
+Start and End (with character escape)
+  
+    /^
+    $/
+
+Each character set in the pattern is surrounded brackets ().
+
+    ([a-z0-9_.-]+)
+
+Verifies that each character will be either a lower case letter, number from 0-9 or special character shown in the code. 
+The + sign allows an infininate number of characters in this section.
+
+    ([\da-z.-]+)
+    
+As above, but instead of stating (0-9) the shorhand (\d) is used to depict allowing entry of any digit equal to (0-9).
+
+    ([a-z.]{2,6})
+
+Verifies that the last set of characters will be only 2-6 characters long, any letter from a-z, or a character(.)
+
+
 ## Author
 
-For more information visit
+Visit https://github.com/vvnnzar
 
 ## Acknowledgements
 
