@@ -1,38 +1,10 @@
-# MBC16_Regex-Tutorial
-
-Monash Bootcamp Assignment 16 - Regex Tutorial
-
-# Using regular expression to validate form input of an email address
+# MBC16_Regex-Tutorial - Using regular expression to validate email entry
 
 A regular expression, also known as regex is simply a sequence of characters coded in a stuctured way to form a pattern. The pattern is then used as an algorithm to match character combinations in strings. Its commonly used for "find" or "find and replace" operations on strings, or for input validation such as verifying whether a user has correctly entered something into a form.
 
-### Email validation
-
 Nowadays, when signing up or accessing information from an online application we are asked to enter an email address. Ever wondered how the system knows your email has not been entered in the correct format? Programmers use Regex to used validate the entry format of an email. It can't verify that the user has entered a legitimate address but it can ensure the entered email is in the format required to support send as a means to reduce the number of undeliverable emails.
 
-Before breaking down regex and its use for validation lets first understand the logic of email entry. https://www.codespot.org/javascript-email-validation/ provides the perfect explanation.
-
-Email addresses commonly have two parts, the local part and domain part.
-
-#### Local component of an email address
-
-The local compontent precedes the @ and can contain the following:
-
-    Any letter or number: a-z, A-Z, 0-9.
-    A dot (.) but should not be first or last character.
-    punctuation: “(),:;<>@[]
-    special characters: !#$%&’*+-/=?^_{|}~
-
-#### Domain component of an email address
-
-The domain part of the email address can contain the following:
-
-    Any letter or number: a-z, A-Z, 0-9.
-    The hyphen (-) but should not be first or last character.
-
-We now can use regex to ensure user input.
-
-This article will explore the following regex code and how it is used .
+This article will explore the following regex code and how it is used to validate user input of an email address.
 
 /^([a-z0-9_.-]+)@([\da-z.-]+).([a-z.]{2,6})$/
 
@@ -51,7 +23,7 @@ This article will explore the following regex code and how it is used .
 
 /^([a-z0-9_.-]+)@([\da-z.-]+).([a-z.]{2,6})$/
 
-Now that we understand the constraints of an email address and the constructs of regex we can now breakdown the regex pattern into three character sets.
+Before delving into the components used for regex, lets first breakdown regex pattern into three character sets.
 Each character set in the pattern is surrounded brackets ().
 
 ([a-z0-9_.-]+) - Verifies that each character will be either a lower case letter, number from 0-9 or special character shown in the code. The + at the end of the bracket denotes that there can be from 1 to an infininate number of characters in this section.
